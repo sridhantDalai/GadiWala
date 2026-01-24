@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "./scss/home.scss";
 
 // gemini
-import { GoogleGenAI } from "@google/genai";
 import ShareDetails from "./shareDetails";
 import { Footer, Header, Slide, Warning } from "./componets";
 
@@ -164,9 +163,6 @@ const Home = () => {
 
 
      // api key
-  const ai = new GoogleGenAI({
-    apiKey: "AIzaSyDm_IxyzHdGgaPX0zB0wF_jDgLxyt7i9_0",
-  });
 
   function extractJSON(text) {
     if (!text) return null;
@@ -194,9 +190,13 @@ const Home = () => {
       const vehicleModeFinal = vehicleMode;
 
 
-      const response = await ai.models.generateContent({
-        model: "gemini-3-pro-preview",
-        contents: `
+      const response = await fetch("/api/gemini", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: `
 ROLE:
 You are a senior transport-research analyst specializing in Indian offline and shared mobility systems
 (e-rickshaws, shared autos, local rentals, informal routes).
@@ -260,14 +260,18 @@ Return ONLY valid JSON that strictly follows all rules above.
 
 
         `,
-      });
+      }),
+    });
 
-      const text =
-        response?.response?.candidates?.[0]?.content?.parts?.[0]?.text ||
-        response.text ||
-        "";
+     
+    if (!response.ok) {
+      throw new Error("Backend API request failed");
+    }
 
-      const parsed = extractJSON(text);
+    const data = await response.json();
+    const parsed = extractJSON(data.text);
+
+    setResult(parsed); 
 
       // debug
       console.log(parsed);
