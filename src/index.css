@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@font-face {
+  font-family: "poppins";
+  src: url("./assests/fonts/Poppins.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "jetBrains";
+  src: url("./assests/fonts/JetBrainsMono.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

@@ -1,0 +1,109 @@
+
+
+
+.Header{
+    position: absolute;
+    width: 100vw;
+    height: 7vh;
+    background-color: #2A2A2A;
+    top: 0;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        font-family: jetBrains;
+        font-size: 1.5rem;
+        color: #767675;
+    }
+}
+
+
+.Footer{
+    position: absolute;
+    width: 100vw;
+    height: 7vh;
+    background-color: #2A2A2A;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2%;
+    align-items: center;
+    a {
+        text-decoration: none;
+        color: inherit;
+        h1{
+        font-family: jetBrains;
+        font-size: 1.5rem;
+        color: #767675;
+        animation: colorChange 1s infinite ease-in-out;
+        cursor: pointer;
+        }
+    }
+    p{
+        font-family: poppins;
+        font-size: 1.1rem;
+        color: #9c9c9c;
+    }
+}
+
+                 
+.slide{
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    width: 10%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10rem;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.warn{
+    position: absolute;
+    width: 100vw;
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 7%;
+    background-color: rgb(251, 251, 97);
+    p{
+        font-family: poppins;
+        font-size: 0.5rem;
+        color: #2A2A2A;
+    }
+}
+
+
+@media (max-width : 780px) {
+    .Footer{
+        bottom: 0;
+        padding: 0 5%;
+        p{
+            font-size: 0.8rem;
+        }      
+    }
+}
+
+//animation
+@keyframes colorChange {
+    0%{
+        color: #767675;
+    }
+    50%{
+        color: rgb(74, 74, 255);
+    }
+    100%{
+       color: #767675; 
+    }
+}

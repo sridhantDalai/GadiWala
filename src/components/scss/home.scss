@@ -1,0 +1,297 @@
+
+.home{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background: url("../../assests/img/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .form1{
+        width: 25%;
+        height: 70%;
+        background-color: #2A2A2A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 15px;
+        position: absolute;
+        top: 15%;
+        left: 2%;
+        .title{
+            width: 90%;
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            position: relative;
+            h1{
+                font-family: jetBrains;
+                font-size: 2rem;
+                color: #626261;
+            }
+            p{
+                font-family: poppins;
+                color: #D0D0CF;
+            }
+            h2{
+                position: absolute;
+                right: 0;
+                font-family: poppins;
+                font-size: 1.3rem;
+                color: #D0D0CF;
+            }
+        }
+        .mid{
+            width: 90%;
+            height: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .veh{
+                width: 75%;
+                height: 90%;
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1.5fr 1fr 1.5fr;
+                grid-template-areas:
+                    "erik car"
+                    "erik auto"
+                    "bike auto";
+
+                gap: 8px;
+                padding: 8px;
+                div{ 
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    &.vehNormal{
+                        background-color: #50504F;
+                    }
+                    &.vehActive{
+                        background-color: #1E1E1E;
+                    }
+                }
+                .erik{
+                    grid-area: erik;
+                    border-top-left-radius: 10px;
+
+                    .img{
+                        height: 90%;
+                        width: 90%;
+                        background: url("../../assests/img/toto.png");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                    }
+                }
+
+                .bike{
+                    grid-area: car;
+                    border-top-right-radius: 10px;
+
+                    .img{
+                        height: 90%;
+                        width: 90%;
+                        background: url("../../assests/img/bike.png");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                    }
+                }
+
+                .car{
+                    grid-area: bike;
+                    border-bottom-left-radius: 10px;
+
+                    .img{
+                        height: 90%;
+                        width: 90%;
+                        background: url("../../assests/img/car.png");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                    }                    
+                }
+
+                .auto{
+                    grid-area: auto;
+                    grid-column: 2;
+                    grid-row: 2 / span 2;
+                    border-bottom-right-radius: 10px;
+
+
+                    .img{
+                        height: 90%;
+                        width: 90%;
+                        background: url("../../assests/img/auto.png");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                    }                    
+                }
+
+            }
+            .ride{
+                height: 90%;
+                width: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                h2{
+                    width: 250%;
+                    height: 20%;
+                    font-family: jetBrains;
+                    transform: rotate(-90deg) ;
+                    font-size: 1rem;
+                    color: #D0D0CF;
+                }
+                button{
+                    width: 50%;
+                    height: 15%;
+                    position: absolute;
+                    bottom: 0;
+                    border-radius: 20rem;
+                    border: none;
+                }
+            }
+        }
+
+
+
+        .data{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            input{
+            padding: 5%;
+            width: 90%;
+            border-radius: 10px;
+            border: none;
+            margin-top: 1%;
+            font-family: poppins;
+            font-size: 1rem;
+            background-color: #383837;
+            color: #D0D0CF;
+
+            &::placeholder{
+                font-family: poppins;
+                font-size: 1rem;
+                color: #5B5B52;
+            }
+
+            &:active , &:focus{
+                border: none;
+                outline: none;
+            }
+            }
+            .me{
+                height: 47%;
+                width: 15%;
+                top: 0;
+                right: 5%;
+                background-color: #82CE3A;
+                position: absolute;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                margin-top: 1%;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+
+        .down{
+            width: 90%;
+            height: 30%;
+            position: relative;
+            h3{
+                font-family: poppins;
+                font-size: 1.5rem;
+                color: #626261;
+            }
+            p{
+                font-family: poppins;
+                font-size: 0.8rem;
+                color: #626261;
+            }
+            button{
+                position: absolute;
+                top: 10%;
+                right: 5%;
+                padding: 1%;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                background-color: #82CE3A;
+                p{
+                    font-family: poppins;
+                    font-size: 0.8rem;
+                    color: white;
+                }
+            }
+            h1{
+                width: 100%;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom: 0;
+                font-family: jetBrains;
+                font-size: 2.8rem;
+                color: #626261;
+            }
+        }
+    }
+
+    .special{
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (max-width : 1024px) {
+    .home{
+        .form1{
+            width: 40%;
+            height: 50%;
+        }
+        .special{}
+    }
+}
+
+@media (max-width : 780px) {
+ .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .form1{
+        width: 90%;
+        height: 70%;
+        left: 5%;
+        .down{
+            h1{
+                font-size: 2rem;
+                //background-color: pink;
+                width: 90%;
+                text-align: center;
+            }
+        }
+    }
+ }   
+}
+

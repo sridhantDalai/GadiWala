@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/genai": "^1.35.0",
+    "@gsap/react": "^2.1.2",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^13.5.0",
+    "gsap": "^3.14.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-router-dom": "^7.12.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.97.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
