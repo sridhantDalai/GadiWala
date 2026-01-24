@@ -189,7 +189,7 @@ async function main(fromValue, toValue) {
 
     const vehicleModeFinal = vehicleMode;
 
-    const response = await fetch("/api/gemini", {
+    const response = await fetch("../../api/gemini.js", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
