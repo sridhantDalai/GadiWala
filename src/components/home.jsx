@@ -182,15 +182,14 @@ const Home = () => {
     return JSON.parse(cleaned.slice(firstBrace, lastBrace + 1));
   }
 
-  async function main(fromValue, toValue) {
-    try {
-      setLoading(true);
-      setResult(null);
+async function main(fromValue, toValue) {
+  try {
+    setLoading(true);
+    setResult(null);
 
-      const vehicleModeFinal = vehicleMode;
+    const vehicleModeFinal = vehicleMode;
 
-
-      const response = await fetch("/api/gemini", {
+    const response = await fetch("/api/gemini", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -263,39 +262,39 @@ Return ONLY valid JSON that strictly follows all rules above.
       }),
     });
 
-     
     if (!response.ok) {
+      const errText = await response.text();
+      console.error("Backend error:", errText);
       throw new Error("Backend API request failed");
     }
 
     const data = await response.json();
+
+    if (!data.text) {
+      throw new Error("No text returned from backend");
+    }
+
     const parsed = extractJSON(data.text);
 
-    setResult(parsed); 
-
-      // debug
-      console.log(parsed);
-
-      if (selectedVeh === "bike" && parsed.commonly_used_by_people === false) {
-        alert(
-          "😅 We couldn't find Sources Related to Bike Transport via this route"
-        );
-        return;
-      }
-
-      // 🚦 DISTANCE RULE (NEW)
-      if (parsed.distInKm > 12) {
-        parsed.vehicle_type = "offline rented";
-      }
-
-      setResult(parsed);
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to calculate route");
-    } finally {
-      setLoading(false);
+    // validations
+    if (selectedVeh === "bike" && parsed.commonly_used_by_people === false) {
+      alert("😅 We couldn't find sources related to bike transport on this route");
+      return;
     }
+
+    if (parsed.distInKm > 12) {
+      parsed.vehicle_type = "offline rented";
+    }
+
+    setResult(parsed);
+  } catch (error) {
+    console.error("Frontend error:", error);
+    alert("Failed to calculate route");
+  } finally {
+    setLoading(false);
   }
+}
+
 
   const onSend = () => {
     const fromData = fromRef.current?.value.trim();
